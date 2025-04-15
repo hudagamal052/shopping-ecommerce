@@ -5,10 +5,11 @@ import { useShop } from "../context/ShopContext";
 import { AppBar, Toolbar, Box, IconButton, Badge, Button, Container } from "@mui/material";
 
 const navLinks = [
-  { to: "/", label: "Home" },
   { to: "/login", label: "Login" },
+  { to: "/", label: "Home" },
   { to: "/category", label: "Categories" },
   { to: "/dashboard", label: "Dashboard" },
+  { to: "/contactus", label: "Contact US" },
 ];
 
 const Navbar = () => {

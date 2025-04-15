@@ -8,10 +8,9 @@ import Sidebar from "./sidebar";
 
 const Dashboard = () => (
   <>
-    <Container sx={{ mt: 4 }}>
+    <Container sx={{ mt: 4 ,mb:4}}>
       <StatsCards />
       <Grid container spacing={3} mt={2}>
-        {/* Main Content Area */}
         <Grid item xs={12} lg={8}>
           <SalesChart />
         </Grid>

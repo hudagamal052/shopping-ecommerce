@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleProvider, facebookProvider } from '../firebase'; // Adjust according to your Firebase setup
 import {
     TextField,
     Button,
@@ -11,7 +13,7 @@ import {
     Snackbar,
     Alert
 } from '@mui/material';
-import { Google as GoogleIcon, Facebook as FacebookIcon, Apple as AppleIcon } from '@mui/icons-material';
+import { Google as GoogleIcon, Facebook as FacebookIcon } from '@mui/icons-material';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -21,6 +23,7 @@ const SignUp = () => {
     const [openSnackbar, setOpenSnackbar] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState('');
     const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleCloseSnackbar = () => {
@@ -29,27 +32,27 @@ const SignUp = () => {
 
     const validateForm = () => {
         let formErrors = {};
-        // التحقق من أن الحقول ليست فارغة
         if (!email) formErrors.email = 'Email is required.';
         if (!password) formErrors.password = 'Password is required.';
         if (!confirmPassword) formErrors.confirmPassword = 'Please confirm your password.';
         if (password !== confirmPassword) formErrors.passwordMatch = "Passwords don't match!";
-
         setErrors(formErrors);
-        return Object.keys(formErrors).length === 0; // إذا لم تكن هناك أخطاء
+        return Object.keys(formErrors).length === 0;
     };
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-        if (!validateForm()) return; // إذا كانت هناك أخطاء لن يتم إرسال البيانات
+        if (!validateForm()) return;
 
         try {
+            setLoading(true);
             const response = await fetch('http://localhost:5000/api/signup', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
             const data = await response.json();
+            setLoading(false);
             if (response.ok) {
                 setSnackbarMessage('Registration successful! You can now log in.');
                 setSnackbarSeverity('success');
@@ -61,7 +64,26 @@ const SignUp = () => {
                 setOpenSnackbar(true);
             }
         } catch (error) {
+            setLoading(false);
             setSnackbarMessage('Network error. Please try again.');
+            setSnackbarSeverity('error');
+            setOpenSnackbar(true);
+        }
+    };
+
+    const handleSignUpWithProvider = async (provider) => {
+        try {
+            setLoading(true);
+            const result = await signInWithPopup(auth, provider);
+            setLoading(false);
+            console.log("Signed up with:", result.user.displayName);
+            setSnackbarMessage('Sign up successful!');
+            setSnackbarSeverity('success');
+            setOpenSnackbar(true);
+            setTimeout(() => navigate('/'), 2000);
+        } catch (err) {
+            setLoading(false);
+            setSnackbarMessage(err.message || 'Sign up failed!');
             setSnackbarSeverity('error');
             setOpenSnackbar(true);
         }
@@ -199,8 +221,9 @@ const SignUp = () => {
                                 fontSize: "16px",
                                 textTransform: 'none',
                             }}
+                            disabled={loading}
                         >
-                            Sign Up
+                            {loading ? "Signing Up..." : "Sign Up"}
                         </Button>
                     </Box>
                 </Box>
@@ -225,8 +248,10 @@ const SignUp = () => {
                         }}
                         variant="outlined"
                         startIcon={<GoogleIcon />}
+                        onClick={() => handleSignUpWithProvider(googleProvider)}
+                        disabled={loading}
                     >
-                        Continue with Google
+                        {loading ? "Signing Up..." : "Continue with Google"}
                     </Button>
 
                     <Button
@@ -244,27 +269,10 @@ const SignUp = () => {
                         }}
                         variant="outlined"
                         startIcon={<FacebookIcon />}
+                        onClick={() => handleSignUpWithProvider(facebookProvider)}
+                        disabled={loading}
                     >
-                        Continue with Facebook
-                    </Button>
-
-                    <Button
-                        sx={{
-                            width: "100%",
-                            color: '#000',
-                            borderColor: '#000',
-                            '&:hover': { backgroundColor: '#000', color: '#fff' },
-                            textTransform: 'none',
-                            padding: "12px",
-                            fontSize: "16px",
-                            justifyContent: 'center',
-                            display: 'flex',
-                            alignItems: 'center',
-                        }}
-                        variant="outlined"
-                        startIcon={<AppleIcon />}
-                    >
-                        Continue with Apple
+                        {loading ? "Signing Up..." : "Continue with Facebook"}
                     </Button>
                 </Box>
             </Paper>

@@ -3,7 +3,7 @@ import { createTheme } from "@mui/material";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#7c4dff", // لون بنفسجي مشابه للصورة
+      main: "#7c4dff",
     },
     secondary: {
       main: "#ff4081",

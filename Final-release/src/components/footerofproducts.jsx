@@ -11,10 +11,10 @@ import {
 } from '@fortawesome/free-brands-svg-icons'; 
 
 const Footerofproducts = () => {
-  const isSmallScreen = useMediaQuery('(max-width: 600px)'); // for checking screen size
+  const isSmallScreen = useMediaQuery('(max-width: 600px)');
 
   return (
-    <>
+    <Box>
       <Stack
         spacing={4}
         direction={isSmallScreen ? 'column' : 'row'}
@@ -22,11 +22,10 @@ const Footerofproducts = () => {
           padding: 3,
           alignItems: 'flex-start',
           justifyContent: 'space-between',
-          background: '#9ACBD0', // Same background as navbar
+          background: '#9ACBD0',
           borderTop: '1px solid #ccc',
         }}
       >
-        {/* ABOUT US Section */}
         <Stack spacing={1} direction="column" sx={{ color: '#fff' }}>
           <Typography
             variant="h6"
@@ -38,24 +37,13 @@ const Footerofproducts = () => {
           >
             ABOUT US
           </Typography>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Our Story
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Careers
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Blog
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Press
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Affiliate Program
-          </Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Our Story</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Careers</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Blog</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Press</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Affiliate Program</Button>
         </Stack>
 
-        {/* CUSTOMER SERVICE Section */}
         <Stack spacing={1} direction="column" sx={{ color: '#fff' }}>
           <Typography
             variant="h6"
@@ -67,24 +55,13 @@ const Footerofproducts = () => {
           >
             CUSTOMER SERVICE
           </Typography>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Contact Us
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Shipping Info
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Returns & Exchanges
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            FAQs
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Order Tracking
-          </Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Contact Us</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Shipping Info</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Returns & Exchanges</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>FAQs</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Order Tracking</Button>
         </Stack>
 
-        {/* SHOP Section */}
         <Stack spacing={1} direction="column" sx={{ color: '#fff' }}>
           <Typography
             variant="h6"
@@ -96,32 +73,21 @@ const Footerofproducts = () => {
           >
             SHOP
           </Typography>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            New Arrivals
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Best Sellers
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Gift Cards
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Sale
-          </Button>
-          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>
-            Brands
-          </Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>New Arrivals</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Best Sellers</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Gift Cards</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Sale</Button>
+          <Button sx={{ color: '#fff', '&:hover': { color: '#00B0FF' } }}>Brands</Button>
         </Stack>
       </Stack>
 
-      {/* CONNECT WITH US Section */}
       <Box
         sx={{
           display: 'flex',
           justifyContent: 'center',
           gap: 2,
           py: 3,
-          background: '#9ACBD0', // Matching navbar background color
+          background: '#9ACBD0',
           borderTop: '1px solid #ccc',
         }}
       >
@@ -135,11 +101,8 @@ const Footerofproducts = () => {
         >
           CONNECT WITH US
         </Typography>
-
-        {/* Social Media Icons */}
         <FontAwesomeIcon
           icon={faFacebookF}
-          className="icon-hover"
           style={{
             fontSize: '30px',
             color: '#fff',
@@ -151,7 +114,6 @@ const Footerofproducts = () => {
         />
         <FontAwesomeIcon
           icon={faInstagram}
-          className="icon-hover"
           style={{
             fontSize: '30px',
             color: '#fff',
@@ -163,7 +125,6 @@ const Footerofproducts = () => {
         />
         <FontAwesomeIcon
           icon={faTwitter}
-          className="icon-hover"
           style={{
             fontSize: '30px',
             color: '#fff',
@@ -175,7 +136,6 @@ const Footerofproducts = () => {
         />
         <FontAwesomeIcon
           icon={faSnapchatGhost}
-          className="icon-hover"
           style={{
             fontSize: '30px',
             color: '#fff',
@@ -187,7 +147,6 @@ const Footerofproducts = () => {
         />
         <FontAwesomeIcon
           icon={faYoutube}
-          className="icon-hover"
           style={{
             fontSize: '30px',
             color: '#fff',
@@ -198,7 +157,7 @@ const Footerofproducts = () => {
           onMouseLeave={(e) => (e.target.style.color = '#fff')}
         />
       </Box>
-    </>
+    </Box>
   );
 };
 

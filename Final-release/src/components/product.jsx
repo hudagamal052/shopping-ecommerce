@@ -13,11 +13,6 @@ import StarIcon from "@mui/icons-material/Star";
 
 const Product = ({ product }) => {
   const navigate = useNavigate();
-  // const addToCart = (product) => {
-  //   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  //   cart.push(product);
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // };
 
   return (
     <Card
@@ -90,56 +85,6 @@ const Product = ({ product }) => {
         >
           🔍 View Details
         </Button>
-        {/* <Button
-          onClick={() => addToCart(product)}
-          variant="contained"
-          sx={{
-            backgroundColor: "#006A71",
-            "&:hover": {
-              backgroundColor: "#004f52",
-              transform: "scale(1.05)",
-            },
-            borderRadius: "20px",
-            paddingX: 2,
-            fontSize: "0.8rem",
-          }}
-        >
-          Add to Cart
-        </Button>
-
-        <Button
-          variant="outlined"
-          sx={{
-            color: "#006A71",
-            borderColor: "#006A71",
-            "&:hover": {
-              backgroundColor: "#e0f2f1",
-              borderColor: "#004f52",
-              transform: "scale(1.05)",
-            },
-            borderRadius: "20px",
-            paddingX: 3,
-            fontSize: "0.8rem",
-          }}
-        >
-          BUY
-        </Button>
-
-        <Button
-          variant="contained"
-          sx={{
-            minWidth: "0",
-            padding: "10px",
-            backgroundColor: "#ffffff",
-            "&:hover": {
-              backgroundColor: "#fffde7",
-            },
-            borderRadius: "50%",
-            boxShadow: "0px 0px 5px rgba(0,0,0,0.1)",
-          }}
-        >
-          <StarIcon sx={{ fontSize: 26, color: "#FFD700" }} />
-        </Button> */}
       </CardActions>
     </Card>
   );

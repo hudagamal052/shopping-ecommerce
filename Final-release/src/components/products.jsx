@@ -5,9 +5,8 @@ import { Typography, Stack, CircularProgress } from "@mui/material";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // حالة التحميل
-  const [error, setError] = useState(null);     // حالة الخطأ
-
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null);    
   useEffect(() => {
     const fetchProducts = async () => {
       try {

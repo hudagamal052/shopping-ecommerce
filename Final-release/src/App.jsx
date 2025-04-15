@@ -20,6 +20,7 @@ import ProductDetailsPage from './pages/ProductDetailsPage';
 import CartPage from './pages/CartPage';
 import FavoritePage from './pages/FavoritePage';
 import Payment from './components/Payment';
+import ContactUs from './components/ContactUs';
 import { ShopProvider } from './context/ShopContext';
 
 
@@ -33,7 +34,6 @@ function App() {
             <Route index={true} element={<Homepage />} />
             <Route path="/products" element={<Products />} />
             <Route path="/cards" element={<Cardsofproducts />} />
-            <Route path="/signup" element={<SignUp></SignUp>} />
             <Route path="/dashboard" element={<Dashboard></Dashboard>} />
             < Route path="/category" element={<CategoryPage />} />
             < Route path="/subcategory/:subcategoryId" element={<ProductPage />} />
@@ -41,7 +41,9 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/favorite" element={<FavoritePage />} />
             <Route path="/payment" element={<Payment />} />
+            <Route path="/contactus" element={<ContactUs></ContactUs>} />
           </Route >
+            <Route path="/signup" element={<SignUp></SignUp>} />
             <Route path="/login" element={<Login />} />
         </Routes>
       </ShopProvider >
