@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Haidy",
+      "age": 23,
+      "city": "assuit"
+    },
+    {
+      "id": 2,
+      "name": "ahmed",
+      "age": 24,
+      "city": "assuit"
+    },
+    {
+      "id": 3,
+      "name": "mona",
+      "age": 30,
+      "city": "assuit"
+    },
+    {
+      "id": 4,
+      "name": "kamal",
+      "age": 25,
+      "city": "assuit"
+    },
+    {
+      "id": 5,
+      "name": "karim",
+      "age": 20,
+      "city": "assuit"
+    }
+  ]
+}

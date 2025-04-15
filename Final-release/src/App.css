@@ -1,0 +1,10 @@
+@import "tailwindcss";
+.icon-hover:hover {
+    color: blue !important; /* Apply blue color on hover */
+    transition: color 0.3s ease; 
+     background-color: white;/* Smooth transition */
+    
+  }
+  .icon-hover{
+    font-size: 2rem;
+  }
