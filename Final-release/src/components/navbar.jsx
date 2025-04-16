@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { ShoppingCart, Heart } from "lucide-react";
 import { useShop } from "../context/ShopContext";
 import { AppBar, Toolbar, Box, IconButton, Badge, Button, Container } from "@mui/material";
+import logo from "../assets/images/LT.png";
 
 const navLinks = [
   { to: "/login", label: "Login" },
@@ -31,7 +32,10 @@ const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Box sx={{ display: "flex", gap: { xs: 2, sm: 3, md: 5 } }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 2, sm: 3, md: 5 } }}>
+            <img src={logo} alt="Logo" style={{ height: 80, width: 80 }} />
+            
+            
             {navLinks.map((link) => (
               <Button
                 key={link.to}

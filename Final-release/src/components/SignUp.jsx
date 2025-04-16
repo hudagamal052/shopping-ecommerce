@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider, facebookProvider } from '../firebase'; // Adjust according to your Firebase setup
+import { auth, googleProvider, facebookProvider } from '../firebase'; 
 import {
     TextField,
     Button,
@@ -100,7 +100,7 @@ const SignUp = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'linear-gradient(135deg, #A8D0DB, #6A71A7, #48A6A7)',
+                background: 'linear-gradient(135deg, #e0f4f5, #93BDC0FF, #10686BFF)',
                 backgroundSize: '400% 400%',
                 animation: 'gradientBG 15s ease infinite',
                 '@keyframes gradientBG': {
@@ -125,11 +125,11 @@ const SignUp = () => {
                 }}
             >
                 <Box sx={{ flex: 1, paddingRight: 4 }}>
-                    <Typography variant="h4" sx={{ color: '#6A71A7', marginBottom: 2, textAlign: 'center' }}>
+                    <Typography variant="h4" sx={{ color: '#006A71', marginBottom: 2, textAlign: 'center' }}>
                         Sign Up
                     </Typography>
 
-                    <Typography variant="body2" sx={{ color: '#6A71A7', textAlign: 'center', marginBottom: 2 }}>
+                    <Typography variant="body2" sx={{ color: '#00697162', textAlign: 'center', marginBottom: 2 }}>
                         <span>Already have an account? </span>
                         <Link
                             onClick={() => navigate('/login')}
@@ -216,7 +216,7 @@ const SignUp = () => {
                             sx={{
                                 marginTop: 2,
                                 backgroundColor: '#48A6A7',
-                                '&:hover': { backgroundColor: '#6A71A7' },
+                                '&:hover': { backgroundColor: '#004f52' },
                                 padding: "12px",
                                 fontSize: "16px",
                                 textTransform: 'none',

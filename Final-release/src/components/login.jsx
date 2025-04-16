@@ -105,7 +105,7 @@ const Login = ({ onToggleForm }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'linear-gradient(135deg, #A8D0DB, #6A71A7, #48A6A7)',
+                background: 'linear-gradient(135deg, #e0f4f5, #93BDC0FF, #10686BFF)',
                 backgroundSize: '400% 400%',
                 animation: 'gradientBG 15s ease infinite',
                 '@keyframes gradientBG': {
@@ -130,11 +130,11 @@ const Login = ({ onToggleForm }) => {
                 }}
             >
                 <Box sx={{ flex: 1, paddingRight: 4 }}>
-                    <Typography variant="h4" sx={{ color: '#6A71A7', marginBottom: 2, textAlign: 'center' }}>
+                    <Typography variant="h4" sx={{ color: '#006A71', marginBottom: 2, textAlign: 'center' }}>
                         Login
                     </Typography>
 
-                    <Typography variant="body2" sx={{ color: '#6A71A7', textAlign: 'center', marginBottom: 2 }}>
+                    <Typography variant="body2" sx={{ color: '#00697162', textAlign: 'center', marginBottom: 2 }}>
                         <span>Don't have an account? </span>
                         <Link
                             onClick={() => navigate('/signup')}
@@ -194,7 +194,7 @@ const Login = ({ onToggleForm }) => {
                             sx={{
                                 marginTop: 2,
                                 backgroundColor: '#48A6A7',
-                                '&:hover': { backgroundColor: '#6A71A7' },
+                                '&:hover': { backgroundColor: '#004f52' },
                                 padding: "10px",
                                 fontSize: "16px",
                             }}

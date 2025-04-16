@@ -8,7 +8,6 @@ import Footerofproducts from "../components/footerofproducts"
 function Rootlayout() {
   return (
     <>
-      {/* huda */}
       <Navbar></Navbar>
       <Outlet ></Outlet>
       <Footerofproducts/>
