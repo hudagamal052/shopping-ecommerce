@@ -33,9 +33,29 @@ const Navbar = () => {
       <Container maxWidth="xl">
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 2, sm: 3, md: 5 } }}>
-            <img src={logo} alt="Logo" style={{ height: 80, width: 80 }} />
-            
-            
+            <Box
+              sx={{
+                height: 80,
+                width: 80,
+                backgroundColor: "#9ACBD0",
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  height: "70%",
+                  width: "70%",
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+
             {navLinks.map((link) => (
               <Button
                 key={link.to}

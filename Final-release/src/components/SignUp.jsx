@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, googleProvider, facebookProvider } from '../firebase'; 
+import { auth, googleProvider, facebookProvider } from '../firebase';
 import {
     TextField,
     Button,
@@ -32,10 +32,20 @@ const SignUp = () => {
 
     const validateForm = () => {
         let formErrors = {};
+        const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+
         if (!email) formErrors.email = 'Email is required.';
-        if (!password) formErrors.password = 'Password is required.';
-        if (!confirmPassword) formErrors.confirmPassword = 'Please confirm your password.';
-        if (password !== confirmPassword) formErrors.passwordMatch = "Passwords don't match!";
+        if (!password) {
+            formErrors.password = 'Password is required.';
+        } else if (!passwordRegex.test(password)) {
+            formErrors.password = 'Password must be at least 8 characters, include an uppercase letter, a number, and a special character.';
+        }
+        if (!confirmPassword) {
+            formErrors.confirmPassword = 'Please confirm your password.';
+        } else if (password !== confirmPassword) {
+            formErrors.passwordMatch = "Passwords don't match!";
+        }
+
         setErrors(formErrors);
         return Object.keys(formErrors).length === 0;
     };
@@ -57,7 +67,7 @@ const SignUp = () => {
                 setSnackbarMessage('Registration successful! You can now log in.');
                 setSnackbarSeverity('success');
                 setOpenSnackbar(true);
-                setTimeout(() => navigate('/login'), 2000);
+                setTimeout(() => navigate('/login'), 3000); // Delay a bit more
             } else {
                 setSnackbarMessage(data.error || 'Registration failed!');
                 setSnackbarSeverity('error');
@@ -80,7 +90,7 @@ const SignUp = () => {
             setSnackbarMessage('Sign up successful!');
             setSnackbarSeverity('success');
             setOpenSnackbar(true);
-            setTimeout(() => navigate('/'), 2000);
+            setTimeout(() => navigate('/'), 3000); // Match timing
         } catch (err) {
             setLoading(false);
             setSnackbarMessage(err.message || 'Sign up failed!');
@@ -148,6 +158,7 @@ const SignUp = () => {
                             margin="normal"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            disabled={loading}
                             sx={{
                                 backgroundColor: '#ffffff',
                                 borderRadius: 2,
@@ -171,6 +182,7 @@ const SignUp = () => {
                             margin="normal"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            disabled={loading}
                             sx={{
                                 backgroundColor: '#ffffff',
                                 borderRadius: 2,
@@ -194,6 +206,7 @@ const SignUp = () => {
                             margin="normal"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
+                            disabled={loading}
                             sx={{
                                 backgroundColor: '#ffffff',
                                 borderRadius: 2,
@@ -228,7 +241,7 @@ const SignUp = () => {
                     </Box>
                 </Box>
 
-                <Divider orientation="vertical" flexItem sx={{ mx: 2, fontWeight: 'bold', color: '#6A71A7' }} >
+                <Divider orientation="vertical" flexItem sx={{ mx: 2, fontWeight: 'bold', color: '#6A71A7' }}>
                     OR
                 </Divider>
 
@@ -242,9 +255,6 @@ const SignUp = () => {
                             textTransform: 'none',
                             padding: "12px",
                             fontSize: "16px",
-                            justifyContent: 'center',
-                            display: 'flex',
-                            alignItems: 'center',
                         }}
                         variant="outlined"
                         startIcon={<GoogleIcon />}
@@ -263,9 +273,6 @@ const SignUp = () => {
                             textTransform: 'none',
                             padding: "12px",
                             fontSize: "16px",
-                            justifyContent: 'center',
-                            display: 'flex',
-                            alignItems: 'center',
                         }}
                         variant="outlined"
                         startIcon={<FacebookIcon />}
@@ -279,7 +286,7 @@ const SignUp = () => {
 
             <Snackbar
                 open={openSnackbar}
-                autoHideDuration={6000}
+                autoHideDuration={3000}
                 onClose={handleCloseSnackbar}
                 anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
             >

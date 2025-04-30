@@ -2,12 +2,12 @@
 import { Card, CardContent, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Chip } from "@mui/material";
 
 const orders = [
-  { id: "#202394", customer: "Ripon Ahmed", date: "1 Jan 24", price: "Tk 1200", status: "Completed" },
-  { id: "#202395", customer: "Darlene Robertson", date: "2 Jan 24", price: "Tk 1800", status: "Pending" },
-  { id: "#202396", customer: "Leslie Alexander", date: "3 Jan 24", price: "Tk 500", status: "Completed" },
-  { id: "#202397", customer: "Ralph Edwards", date: "4 Jan 24", price: "Tk 1800", status: "Completed" },
-  { id: "#202398", customer: "Ronald Richards", date: "9 Jan 24", price: "Tk 2500", status: "Pending" },
-  { id: "#202399", customer: "Devon Lane", date: "9 Jan 24", price: "Tk 700", status: "Pending" },
+  { id: "#202394", customer: "Ripon Ahmed", date: "1 Jan 24", price: "USD 1200", status: "Completed" },
+  { id: "#202395", customer: "Darlene Robertson", date: "2 Jan 24", price: "USD 1800", status: "Pending" },
+  { id: "#202396", customer: "Leslie Alexander", date: "3 Jan 24", price: "USD 500", status: "Completed" },
+  { id: "#202397", customer: "Ralph Edwards", date: "4 Jan 24", price: "USD 1800", status: "Completed" },
+  { id: "#202398", customer: "Ronald Richards", date: "9 Jan 24", price: "USD 2500", status: "Pending" },
+  { id: "#202399", customer: "Devon Lane", date: "9 Jan 24", price: "USD 700", status: "Pending" },
 ];
 
 const getStatusColor = (status) => {
